@@ -2,14 +2,22 @@
 using NLog.Web;
 using System.IO;
 
-namespace TicketingSystemAssignment
+namespace TicketingSystemWithClasses
 {
     class Program
     {
+        
+        // create static instance of Logger
+        private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
+
+
         static void Main(string[] args)
-        {
+        {        
+            logger.Info("Program started");
+
             string file = "tickets.txt";
             string choice;
+        
             do
             {
                 // ask user a question

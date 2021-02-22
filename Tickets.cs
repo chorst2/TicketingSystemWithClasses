@@ -1,10 +1,10 @@
 using System;
 using System.IO;
 
-namespace TicketingSystemAssignment
+namespace TicketingSystemWithClasses
 {
     class Tickets
     {
-        
+
     }
 }
