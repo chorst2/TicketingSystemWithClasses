@@ -5,6 +5,6 @@ namespace TicketingSystemWithClasses
 {
     class Tickets
     {
-
+        
     }
 }
