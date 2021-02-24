@@ -52,7 +52,7 @@ namespace TicketingSystemWithClasses
                 sw.WriteLine($"{ticket.ticketID},{ticket.ticketSummary},{ticket.ticketStatus},{ticket.ticketPriority},{ticket.ticketSubmitter},{ticket.ticketAssigned},{ticket.ticketWatching} ");
                 sw.Close();
                 Ticket.Add(ticket);
-                logger.Info("Movie id {Id} added", ticket.ticketID);
+                logger.Info("Ticket id {Id} added", ticket.ticketID);
             }catch(Exception ex)
             {
                 logger.Error(ex.Message);

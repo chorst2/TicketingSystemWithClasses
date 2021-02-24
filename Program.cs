@@ -133,6 +133,7 @@ namespace TicketingSystemWithClasses
                     // sw.Close();
                 }
             } while (choice == "1" || choice == "2");
+            logger.Info("Program ended");
         }
     }
 }
