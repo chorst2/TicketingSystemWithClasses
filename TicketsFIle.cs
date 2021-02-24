@@ -29,13 +29,13 @@ namespace TicketingSystemWithClasses
                     string line = sr.ReadLine();
 
                     string[] ticketDetails = line.Split(',');
-                    ticket.ticketID = ticketDetails[1];
-                    ticket.ticketSummary = ticketDetails[2];
-                    ticket.ticketStatus = ticketDetails[3];
-                    ticket.ticketPriority = ticketDetails[4];
-                    ticket.ticketSubmitter = ticketDetails[5];
-                    ticket.ticketAssigned = ticketDetails[6];
-                    ticket.ticketWatching = ticketDetails[7].Replace('|',',');
+                    ticket.ticketID = UInt64.Parse(ticketDetails[0]);
+                    ticket.ticketSummary = ticketDetails[1];
+                    ticket.ticketStatus = ticketDetails[2];
+                    ticket.ticketPriority = ticketDetails[3];
+                    ticket.ticketSubmitter = ticketDetails[4];
+                    ticket.ticketAssigned = ticketDetails[5];
+                    ticket.ticketWatching = ticketDetails[6].Replace('|',',');
                     Ticket.Add(ticket);
                 }
                 sr.Close();
