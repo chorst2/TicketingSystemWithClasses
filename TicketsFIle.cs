@@ -35,7 +35,7 @@ namespace TicketingSystemWithClasses
                     ticket.ticketPriority = ticketDetails[4];
                     ticket.ticketSubmitter = ticketDetails[5];
                     ticket.ticketAssigned = ticketDetails[6];
-                    ticket.ticketWatching = ticketDetails[7].Replace('|',', ');
+                    ticket.ticketWatching = ticketDetails[7].Replace('|',',');
                     Ticket.Add(ticket);
                 }
                 sr.Close();
@@ -48,7 +48,14 @@ namespace TicketingSystemWithClasses
         public void AddTicket(Tickets ticket){
             try{
                 ticket.ticketID = Ticket.Max(t => t.ticketID) + 1;
-            
+                StreamWriter sw = new StreamWriter(ticketsFile, true);
+                sw.WriteLine($"{ticket.ticketID},{ticket.ticketSummary},{ticket.ticketStatus},{ticket.ticketPriority},{ticket.ticketSubmitter},{ticket.ticketAssigned},{ticket.ticketWatching} ");
+                sw.Close();
+                Ticket.Add(ticket);
+                logger.Info("Movie id {Id} added", ticket.ticketID);
+            }catch(Exception ex)
+            {
+                logger.Error(ex.Message);
             }
         }
     }
