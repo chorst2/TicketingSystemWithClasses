@@ -5,7 +5,7 @@ namespace TicketingSystemWithClasses
 {
     class Tickets
     {
-         public UInt64 ticketID { get; set; }                     
+         public string ticketID;                  
          public string ticketSummary;
                      
         public string ticketStatus;
