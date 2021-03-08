@@ -38,21 +38,28 @@ namespace TicketingSystemWithClasses
 
                 if (choice == "1")
                 {
+                    if(File.Exists(bugFile)){
                     Console.WriteLine("Bug/Defect Tickets:\n");
                     // read bug/defects tickets from file
                     foreach(Tickets t in ticketsFile.Ticket){
                             Console.WriteLine(t.Display());
                     }
+                    }
+                    else{Console.WriteLine("Bug/Defect Ticket File does not exist");}
+                    if(File.Exists(enhancementFile)){
                     Console.WriteLine("Enhancement Tickets:\n");
                     //read enhancement tickets from file
                     foreach(Tickets t in enhancementsFile.Ticket){
                         Console.WriteLine(t.Display());
-                    }
+                    }}
+                    else{Console.WriteLine("Enhancement Ticket File does not exist");}
+                    if(File.Exists(taskFileString)){
                     Console.WriteLine("Task Tickets: \n");
                     //read task tickets from file
                     foreach(Tickets t in taskFile.Ticket){
                         Console.WriteLine(t.Display());
-                    }
+                    }}
+                    else{Console.WriteLine("Task Ticket File does not exist");}
 
                 }
 
