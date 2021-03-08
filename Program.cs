@@ -24,6 +24,7 @@ namespace TicketingSystemWithClasses
             TaskFile taskFile = new TaskFile(taskFileString);
             
             string choice = "";
+            string ticketTypeChoice = "";
         
             do
             {
@@ -56,33 +57,81 @@ namespace TicketingSystemWithClasses
 
                 else if (choice == "2")
                 {
-                    // create a bug/defect ticket
-                    Bug defectTickets = new Bug();
+                    // ask user a question
+                Console.WriteLine("1) Bug/Defect Ticket");
+                Console.WriteLine("2) Enhancement Ticket");
+                Console.WriteLine("3) Task Ticket");
+                // input response
+                ticketTypeChoice = Console.ReadLine();
+
+                    if(ticketTypeChoice == "1"){
+                        // create a bug/defect ticket
+                        Bug defectTickets = new Bug();
+                        Console.WriteLine("Enter Ticket Id: ");
+                        defectTickets.ticketID = Console.ReadLine();
+                        
+                        Console.WriteLine("Enter Ticket Summary: ");
+                        defectTickets.ticketSummary = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Status: ");
+                        defectTickets.ticketStatus = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Priority: ");
+                        defectTickets.ticketPriority = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Submitter: ");
+                        defectTickets.ticketSubmitter = Console.ReadLine();
+
+                        Console.WriteLine("Enter who the ticket is assigned to: ");
+                        defectTickets.ticketAssigned = Console.ReadLine();
+
+                        Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
+                        defectTickets.ticketWatching = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Severity: ");
+                        defectTickets.ticketSeverity = Console.ReadLine();
+
+                        ticketsFile.AddTicket(defectTickets);
+                    }
+                    else if(ticketTypeChoice == "2"){
+                        // create an enhancements ticket
+                    Enhancement enhancementTickets = new Enhancement();
                     Console.WriteLine("Enter Ticket Id: ");
-                    defectTickets.ticketID = Console.ReadLine();
+                    enhancementTickets.ticketID = Console.ReadLine();
                     
                     Console.WriteLine("Enter Ticket Summary: ");
-                    defectTickets.ticketSummary = Console.ReadLine();
+                    enhancementTickets.ticketSummary = Console.ReadLine();
 
                     Console.WriteLine("Enter Ticket Status: ");
-                    defectTickets.ticketStatus = Console.ReadLine();
+                    enhancementTickets.ticketStatus = Console.ReadLine();
 
                     Console.WriteLine("Enter Ticket Priority: ");
-                    defectTickets.ticketPriority = Console.ReadLine();
+                    enhancementTickets.ticketPriority = Console.ReadLine();
 
                     Console.WriteLine("Enter Ticket Submitter: ");
-                    defectTickets.ticketSubmitter = Console.ReadLine();
+                    enhancementTickets.ticketSubmitter = Console.ReadLine();
 
                     Console.WriteLine("Enter who the ticket is assigned to: ");
-                    defectTickets.ticketAssigned = Console.ReadLine();
+                    enhancementTickets.ticketAssigned = Console.ReadLine();
 
                     Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
-                    defectTickets.ticketWatching = Console.ReadLine();
+                    enhancementTickets.ticketWatching = Console.ReadLine();
 
-                    Console.WriteLine("Enter Ticket Severity: ");
-                    defectTickets.ticketSeverity = Console.ReadLine();
+                    Console.WriteLine("Enter Ticket Software: ");
+                    enhancementTickets.ticketSoftware = Console.ReadLine();
 
-                    ticketsFile.AddTicket(defectTickets);
+                    Console.WriteLine("Enter Ticket Cost: ");
+                    enhancementTickets.ticketCost = Decimal.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Enter Ticket Reason: ");
+                    enhancementTickets.ticketReason = Console.ReadLine();
+
+                    Console.WriteLine("Enter Ticket Estimate: ");
+                    enhancementTickets.ticketEstimate = Console.ReadLine();
+
+                    ticketsFile.AddTicket(enhancementTickets);
+                    }
+                    
 
                 }
             } while (choice == "1" || choice == "2");
