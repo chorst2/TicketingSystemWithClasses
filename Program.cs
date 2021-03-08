@@ -28,47 +28,61 @@ namespace TicketingSystemWithClasses
             do
             {
                 // ask user a question
-                Console.WriteLine("1) Read tickets from file.");
-                Console.WriteLine("2) Create a ticket.");
+                Console.WriteLine("1) Read all tickets");
+                Console.WriteLine("2) Create a ticket");
                 Console.WriteLine("Enter any other key to exit.");
                 // input response
                 choice = Console.ReadLine();
 
                 if (choice == "1")
                 {
-                    // TODO: read tickets from file
-                    // read tickets from file
+                    Console.WriteLine("Bug/Defect Tickets:\n");
+                    // read bug/defects tickets from file
                     foreach(Tickets t in ticketsFile.Ticket){
                             Console.WriteLine(t.Display());
                     }
+                    Console.WriteLine("Enhancement Tickets:\n");
+                    //read enhancement tickets from file
+                    foreach(Tickets t in enhancementsFile.Ticket){
+                        Console.WriteLine(t.Display());
+                    }
+                    Console.WriteLine("Task Tickets: \n");
+                    //read task tickets from file
+                    foreach(Tickets t in taskFile.Ticket){
+                        Console.WriteLine(t.Display());
+                    }
+
                 }
 
                 else if (choice == "2")
                 {
-                    // create a ticket
-                    Tickets tickets = new Tickets();
+                    // create a bug/defect ticket
+                    Bug defectTickets = new Bug();
                     Console.WriteLine("Enter Ticket Id: ");
-                    tickets.ticketID = Console.ReadLine();
+                    defectTickets.ticketID = Console.ReadLine();
                     
                     Console.WriteLine("Enter Ticket Summary: ");
-                    tickets.ticketSummary = Console.ReadLine();
+                    defectTickets.ticketSummary = Console.ReadLine();
 
                     Console.WriteLine("Enter Ticket Status: ");
-                    tickets.ticketStatus = Console.ReadLine();
+                    defectTickets.ticketStatus = Console.ReadLine();
 
                     Console.WriteLine("Enter Ticket Priority: ");
-                    tickets.ticketPriority = Console.ReadLine();
+                    defectTickets.ticketPriority = Console.ReadLine();
 
                     Console.WriteLine("Enter Ticket Submitter: ");
-                    tickets.ticketSubmitter = Console.ReadLine();
+                    defectTickets.ticketSubmitter = Console.ReadLine();
 
                     Console.WriteLine("Enter who the ticket is assigned to: ");
-                    tickets.ticketAssigned = Console.ReadLine();
+                    defectTickets.ticketAssigned = Console.ReadLine();
 
                     Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
-                    tickets.ticketWatching = Console.ReadLine();
+                    defectTickets.ticketWatching = Console.ReadLine();
 
-                    ticketsFile.AddTicket(tickets);
+                    Console.WriteLine("Enter Ticket Severity: ");
+                    defectTickets.ticketSeverity = Console.ReadLine();
+
+                    ticketsFile.AddTicket(defectTickets);
 
                 }
             } while (choice == "1" || choice == "2");
