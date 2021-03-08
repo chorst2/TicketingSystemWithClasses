@@ -152,7 +152,7 @@ namespace TicketingSystemWithClasses
                     Console.WriteLine("Enter Ticket Estimate: ");
                     enhancementTickets.ticketEstimate = Console.ReadLine();
 
-                    ticketsFile.AddTicket(enhancementTickets);
+                    enhancementsFile.AddTicket(enhancementTickets);
                     }
                     else if(ticketTypeChoice == "3"){
                         // create a task ticket
@@ -201,7 +201,7 @@ namespace TicketingSystemWithClasses
                         
                         taskTickets.ticketDueDate = new DateTime(userYear, userMonth, userDay);
 
-                        ticketsFile.AddTicket(taskTickets);
+                        taskFile.AddTicket(taskTickets);
                     }
                     
 
