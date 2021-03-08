@@ -25,30 +25,32 @@ namespace TicketingSystemWithClasses
                 sr.ReadLine();
                 while(!sr.EndOfStream)
                 {
-                    Tickets ticket = new Tickets();
+                    Bug defectTicket = new Bug();
                     string line = sr.ReadLine();
 
                     string[] ticketDetails = line.Split(',');
-                    ticket.ticketID = ticketDetails[1];
-                    ticket.ticketSummary = ticketDetails[2];
-                    ticket.ticketStatus = ticketDetails[3];
-                    ticket.ticketPriority = ticketDetails[4];
-                    ticket.ticketSubmitter = ticketDetails[5];
-                    ticket.ticketAssigned = ticketDetails[6];
-                    ticket.ticketWatching = ticketDetails[7].Replace('|',',');
-                    Ticket.Add(ticket);
+                    defectTicket.ticketID = ticketDetails[1];
+                    defectTicket.ticketSummary = ticketDetails[2];
+                    defectTicket.ticketStatus = ticketDetails[3];
+                    defectTicket.ticketPriority = ticketDetails[4];
+                    defectTicket.ticketSubmitter = ticketDetails[5];
+                    defectTicket.ticketAssigned = ticketDetails[6];
+                    defectTicket.ticketWatching = ticketDetails[7].Split('|').ToList();
+                    defectTicket.ticketSeverity = ticketDetails[8];
+                    Ticket.Add(defectTicket);
                 }
                 sr.Close();
                 logger.Info("Tickets in file {Count}", Ticket.Count);
             }catch(Exception ex){
                 logger.Error(ex.Message);
             }
+            
         }
 
-        public void AddTicket(Tickets ticket){
+        public void AddTicket(Bug ticket){
             try{
                 StreamWriter sw = new StreamWriter(ticketsFile, true);
-                sw.WriteLine($"{ticket.ticketID},{ticket.ticketSummary},{ticket.ticketStatus},{ticket.ticketPriority},{ticket.ticketSubmitter},{ticket.ticketAssigned},{ticket.ticketWatching} ");
+                sw.WriteLine($"{ticket.ticketID},{ticket.ticketSummary},{ticket.ticketStatus},{ticket.ticketPriority},{ticket.ticketSubmitter},{ticket.ticketAssigned},{string.Join("|",ticket.ticketWatching)},{ticket.ticketSeverity}");
                 sw.Close();
                 Ticket.Add(ticket);
                 logger.Info("Ticket id {Id} added", ticket.ticketID);
