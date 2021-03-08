@@ -25,6 +25,7 @@ namespace TicketingSystemWithClasses
             
             string choice = "";
             string ticketTypeChoice = "";
+            string input = "";
         
             do
             {
@@ -85,8 +86,19 @@ namespace TicketingSystemWithClasses
                         Console.WriteLine("Enter who the ticket is assigned to: ");
                         defectTickets.ticketAssigned = Console.ReadLine();
 
-                        Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
-                        defectTickets.ticketWatching = Console.ReadLine();
+                        do
+                        {
+                            // ask user to enter ticket watching
+                            Console.WriteLine("Enter Ticket Watcher (or done to quit)");
+                            // input genre
+                            input = Console.ReadLine();
+                            // if user enters "done"
+                            // or does not enter a genre do not add it to list
+                            if (input != "done" && input.Length > 0)
+                            {
+                                defectTickets.ticketWatching.Add(input);
+                            }
+                        } while (input != "done");
 
                         Console.WriteLine("Enter Ticket Severity: ");
                         defectTickets.ticketSeverity = Console.ReadLine();
@@ -114,8 +126,19 @@ namespace TicketingSystemWithClasses
                     Console.WriteLine("Enter who the ticket is assigned to: ");
                     enhancementTickets.ticketAssigned = Console.ReadLine();
 
-                    Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
-                    enhancementTickets.ticketWatching = Console.ReadLine();
+                    do
+                        {
+                            // ask user to enter ticket watching
+                            Console.WriteLine("Enter Ticket Watcher (or done to quit)");
+                            // input genre
+                            input = Console.ReadLine();
+                            // if user enters "done"
+                            // or does not enter a genre do not add it to list
+                            if (input != "done" && input.Length > 0)
+                            {
+                                enhancementTickets.ticketWatching.Add(input);
+                            }
+                        } while (input != "done");
 
                     Console.WriteLine("Enter Ticket Software: ");
                     enhancementTickets.ticketSoftware = Console.ReadLine();
@@ -152,8 +175,19 @@ namespace TicketingSystemWithClasses
                         Console.WriteLine("Enter who the ticket is assigned to: ");
                         taskTickets.ticketAssigned = Console.ReadLine();
 
-                        Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
-                        taskTickets.ticketWatching = Console.ReadLine();
+                        do
+                        {
+                            // ask user to enter ticket watching
+                            Console.WriteLine("Enter Ticket Watcher (or done to quit)");
+                            // input genre
+                            input = Console.ReadLine();
+                            // if user enters "done"
+                            // or does not enter a genre do not add it to list
+                            if (input != "done" && input.Length > 0)
+                            {
+                                taskTickets.ticketWatching.Add(input);
+                            }
+                        } while (input != "done");
 
                         Console.WriteLine("Enter Ticket Project Name: ");
                         taskTickets.ticketProjectName = Console.ReadLine();
