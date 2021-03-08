@@ -131,6 +131,44 @@ namespace TicketingSystemWithClasses
 
                     ticketsFile.AddTicket(enhancementTickets);
                     }
+                    else if(ticketTypeChoice == "3"){
+                        // create a task ticket
+                        Task taskTickets = new Task();
+                        Console.WriteLine("Enter Ticket Id: ");
+                        taskTickets.ticketID = Console.ReadLine();
+                        
+                        Console.WriteLine("Enter Ticket Summary: ");
+                        taskTickets.ticketSummary = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Status: ");
+                        taskTickets.ticketStatus = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Priority: ");
+                        taskTickets.ticketPriority = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Submitter: ");
+                        taskTickets.ticketSubmitter = Console.ReadLine();
+
+                        Console.WriteLine("Enter who the ticket is assigned to: ");
+                        taskTickets.ticketAssigned = Console.ReadLine();
+
+                        Console.WriteLine("Enter who is watching the ticket: (Separate names with '|') ");
+                        taskTickets.ticketWatching = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Project Name: ");
+                        taskTickets.ticketProjectName = Console.ReadLine();
+
+                        Console.WriteLine("Enter Ticket Due Date Year (YYYY): ");
+                        int userYear =  Int32.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter Ticket Due Date Month (1-12): ");
+                        int userMonth = Int32.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter Ticket Due Date Day (1-31): ");
+                        int userDay = Int32.Parse(Console.ReadLine());
+                        
+                        taskTickets.ticketDueDate = new DateTime(userYear, userMonth, userDay);
+
+                        ticketsFile.AddTicket(taskTickets);
+                    }
                     
 
                 }
