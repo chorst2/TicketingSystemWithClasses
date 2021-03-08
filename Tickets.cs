@@ -43,5 +43,18 @@ namespace TicketingSystemWithClasses
         }
     }
 
+    public class Task : Tickets{
+        public string ticketProjectName {get; set;}
+        public DateTime ticketDueDate {get;set;}
+
+        public Task(){
+            ticketDueDate = new DateTime();
+        }
+
+        public override string Display(){
+            return $"Ticket Id: {ticketID}\nTIcket Summary: {ticketSummary}\nTicket Status: {ticketStatus}\nTicket Priority: {ticketPriority}\nTicket Submitter: {ticketSubmitter}\nTicket Assigned: {ticketAssigned}\nTicket Watching: {string.Join(", ", ticketWatching)}\nTicket Project Name: {ticketProjectName}\nTicket Due Date: {ticketDueDate.ToLongDateString()}";
+        }
+    }
+
    
 }
