@@ -13,11 +13,15 @@ namespace TicketingSystemWithClasses
 
         static void Main(string[] args)
         {        
-            string file = "tickets.txt";
+            string bugFile = "tickets.txt";
+            string enhancementFile = "enhancements.txt";
+            string taskFileString = "tasks.txt";
 
             logger.Info("Program started");
             
-            TicketsFile ticketsFile = new TicketsFile(file);
+            TicketsFile ticketsFile = new TicketsFile(bugFile);
+            EnhancementsFile enhancementsFile = new EnhancementsFile(enhancementFile);
+            TaskFile taskFile = new TaskFile(taskFileString);
             
             string choice = "";
         
@@ -32,7 +36,7 @@ namespace TicketingSystemWithClasses
 
                 if (choice == "1")
                 {
-                    // TODO: read tciekts from file
+                    // TODO: read tickets from file
                     // read tickets from file
                     foreach(Tickets t in ticketsFile.Ticket){
                             Console.WriteLine(t.Display());
