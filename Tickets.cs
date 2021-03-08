@@ -37,5 +37,11 @@ namespace TicketingSystemWithClasses
         public decimal ticketCost {get; set;}
         public string ticketReason {get; set;}
         public string ticketEstimate {get; set;}
+
+        public override string Display(){
+            return $"Ticket Id: {ticketID}\nTIcket Summary: {ticketSummary}\nTicket Status: {ticketStatus}\nTicket Priority: {ticketPriority}\nTicket Submitter: {ticketSubmitter}\nTicket Assigned: {ticketAssigned}\nTicket Watching: {string.Join(", ", ticketWatching)}\nTicket Software: {ticketSoftware}\nTicket Cost: ${ticketCost}\nTicket Reason: {ticketReason}\nTicket Estimate: {ticketEstimate}\n";
+        }
     }
+
+   
 }
