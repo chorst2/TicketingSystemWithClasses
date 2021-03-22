@@ -32,6 +32,9 @@ namespace TicketingSystemWithClasses
                 // ask user a question
                 Console.WriteLine("1) Read all tickets");
                 Console.WriteLine("2) Create a ticket");
+                Console.WriteLine("3) Search by Status");
+                Console.WriteLine("4) Search by Priority");
+                Console.WriteLine("5) Search by Submitter");
                 Console.WriteLine("Enter any other key to exit.");
                 // input response
                 choice = Console.ReadLine();
@@ -213,7 +216,16 @@ namespace TicketingSystemWithClasses
                     
 
                 }
-            } while (choice == "1" || choice == "2");
+                else if(choice == "3"){
+
+                }
+                else if(choice == "4"){
+
+                }
+                else if(choice == "5"){
+                    
+                }
+            } while (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5");
             logger.Info("Program ended");
         }
     }
