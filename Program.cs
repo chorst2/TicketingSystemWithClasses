@@ -243,17 +243,17 @@ namespace TicketingSystemWithClasses
                     Console.WriteLine("Enter the priority");
                     userSearchPriority = Console.ReadLine();
 
-                    var bugPrioritySearch = ticketsFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchPriority)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    var bugPrioritySearch = ticketsFile.Ticket.Where(t => t.ticketPriority.Contains(userSearchPriority)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
                     Console.WriteLine($"There are {bugPrioritySearch.Count()} defect tickets with the priority of {userSearchPriority}");
                     foreach(var s in bugPrioritySearch){
                         Console.WriteLine($"    {s}");
                     }
-                    var enhancementPrioritySearch = enhancementsFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchPriority)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    var enhancementPrioritySearch = enhancementsFile.Ticket.Where(t => t.ticketPriority.Contains(userSearchPriority)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
                     Console.WriteLine($"There are {enhancementPrioritySearch.Count()} enhancement tickets with the priority of {userSearchPriority}");
                     foreach(var s in enhancementPrioritySearch){
                         Console.WriteLine($"    {s}");
                     }
-                    var taskPrioritySearch = taskFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchPriority)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    var taskPrioritySearch = taskFile.Ticket.Where(t => t.ticketPriority.Contains(userSearchPriority)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
                     Console.WriteLine($"There are {taskPrioritySearch.Count()} task tickets with the priority of {userSearchPriority}");
                     foreach(var s in taskPrioritySearch){
                         Console.WriteLine($"    {s}");
@@ -265,17 +265,17 @@ namespace TicketingSystemWithClasses
                     Console.WriteLine("Enter the submitter");
                     userSearchSubmitter = Console.ReadLine();
 
-                    var bugSubmitterSearch = ticketsFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchSubmitter)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    var bugSubmitterSearch = ticketsFile.Ticket.Where(t => t.ticketSubmitter.Contains(userSearchSubmitter)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
                     Console.WriteLine($"There are {bugSubmitterSearch.Count()} defect tickets with the submitter of {userSearchSubmitter}");
                     foreach(var s in bugSubmitterSearch){
                         Console.WriteLine($"    {s}");
                     }
-                    var enhancementSubmitterSearch = enhancementsFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchSubmitter)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    var enhancementSubmitterSearch = enhancementsFile.Ticket.Where(t => t.ticketSubmitter.Contains(userSearchSubmitter)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
                     Console.WriteLine($"There are {enhancementSubmitterSearch.Count()} enhancement tickets with the submitter of {userSearchSubmitter}");
                     foreach(var s in enhancementSubmitterSearch){
                         Console.WriteLine($"    {s}");
                     }
-                    var taskSubmitterSearch = taskFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchSubmitter)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    var taskSubmitterSearch = taskFile.Ticket.Where(t => t.ticketSubmitter.Contains(userSearchSubmitter)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
                     Console.WriteLine($"There are {taskSubmitterSearch.Count()} task tickets with the submitter of {userSearchSubmitter}");
                     foreach(var s in taskSubmitterSearch){
                         Console.WriteLine($"    {s}");
