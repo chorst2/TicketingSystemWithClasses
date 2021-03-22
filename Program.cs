@@ -1,6 +1,7 @@
 ﻿using System;
 using NLog.Web;
 using System.IO;
+using System.Linq;
 
 namespace TicketingSystemWithClasses
 {
@@ -217,13 +218,31 @@ namespace TicketingSystemWithClasses
 
                 }
                 else if(choice == "3"){
+                    string userSearchStatus = "";
+                    Console.WriteLine("Enter the status");
+                    userSearchStatus = Console.ReadLine();
 
+                    var bugStatusSearch = ticketsFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchStatus)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    Console.WriteLine($"There are {bugStatusSearch.Count()} defect tickets with the status of {userSearchStatus}");
+                    foreach(var s in bugStatusSearch){
+                        Console.WriteLine($"    {s}");
+                    }
+                    var enhancementStatusSearch = enhancementsFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchStatus)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    Console.WriteLine($"There are {enhancementStatusSearch.Count()} enhancement tickets with the status of {userSearchStatus}");
+                    foreach(var s in enhancementStatusSearch){
+                        Console.WriteLine($"    {s}");
+                    }
+                    var taskStatusSearch = taskFile.Ticket.Where(t => t.ticketStatus.Contains(userSearchStatus)).Select(t => new {t.ticketID, t.ticketSummary, t.ticketStatus, t.ticketPriority, t.ticketSubmitter, t.ticketAssigned, t.ticketWatching});
+                    Console.WriteLine($"There are {taskStatusSearch.Count()} task tickets with the status of {userSearchStatus}");
+                    foreach(var s in taskStatusSearch){
+                        Console.WriteLine($"    {s}");
+                    }
                 }
                 else if(choice == "4"){
 
                 }
                 else if(choice == "5"){
-                    
+
                 }
             } while (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5");
             logger.Info("Program ended");
